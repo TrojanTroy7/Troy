@@ -3,75 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Troy | طروادة</title>
+    <title>Troy</title>
     <style>
         body {
             background-color: #1C1C1C;
-            color: #808080;
+            color: #414141;
             font-family: 'Courier New', Courier, monospace;
-            margin: 0;
             display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        h1 {
+            font-weight: 300;
+            letter-spacing: 2px;
+            font-size: 1.1rem;
+            opacity: 0.7;
+            margin: 0;
+            direction: ltr; 
+            unicode-bidi: isolate;
+        }
+        .soon {
+            font-size: 0.8rem;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            opacity: 0.4;
+        }
+        .date-mark {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 0.6rem;
+            opacity: 0.3;
+            letter-spacing: 1px;
+        }
+        .go-btn {
+            background: none;
+            border: 1px solid #414141;
+            color: #414141;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.8rem;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .go-btn:hover {
+            opacity: 1;
+            color: #808080;
+            border-color: #808080;
+        }
+        #engine-interface {
+            display: none;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
+            width: 100%;
         }
-        h1 { font-weight: 300; margin-top: 20px; opacity: 0.8; letter-spacing: 3px; }
         .inventory-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
             gap: 20px;
-            width: 85%;
-            margin-top: 50px;
-            padding: 20px;
+            width: 80%;
+            margin-top: 30px;
         }
         .item-box {
-            aspect-ratio: 1 / 1;
+            aspect-ratio: 1/1;
             border: 1px solid #414141;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            transition: 0.3s;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-        }
-        .item-box:hover { 
-            border-color: #808080; 
-            background: #252525;
-            color: #FFFFFF;
-        }
-        #selection-bin {
-            margin-top: 40px;
-            padding: 15px;
-            border-top: 1px solid #414141;
-            width: 80%;
-            text-align: center;
+            font-size: 0.7rem;
         }
         .start-btn {
             background: none;
-            border: 1px solid #808080;
-            color: #808080;
-            padding: 12px 40px;
+            border: 1px solid #414141;
+            color: #414141;
+            padding: 10px 30px;
             cursor: pointer;
-            margin-top: 30px;
-            letter-spacing: 5px;
-            transition: 0.4s;
-        }
-        .start-btn:hover { 
-            background: #808080; 
-            color: #1C1C1C; 
-            box-shadow: 0 0 15px rgba(128, 128, 128, 0.4);
+            margin-top: 40px;
+            letter-spacing: 3px;
         }
     </style>
 </head>
 <body>
-    <h1>TROY / طروادة</h1>
-    <div class="inventory-grid" id="main-inventory"></div>
-    <div id="selection-bin">
-        <p style="font-size: 0.7rem; opacity: 0.4; letter-spacing: 2px;">SELECTED OBJECTS WILL BE ARCHIVED HERE</p>
+    <div id="welcome-screen" class="container">
+        <h1>Welcome to Troy / طروادة </h1>
+        <div class="soon">Soon...</div>
+        <button class="go-btn" onclick="startEngine()">Go, Engine.</button>
     </div>
-    <button class="start-btn">INITIALIZE SIMULATION</button>
+
+    <div id="engine-interface">
+        <h1>TROY / طروادة</h1>
+        <div class="inventory-grid" id="main-inventory"></div>
+        <button class="start-btn">INITIALIZE SIMULATION</button>
+    </div>
+
+    <div class="date-mark">Since April 28, 2026</div>
+
+    <script>
+        function startEngine() {
+            document.getElementById('welcome-screen').style.display = 'none';
+            document.getElementById('engine-interface').style.display = 'flex';
+        }
+    </script>
     <script src="bridge.js"></script>
 </body>
 </html>
