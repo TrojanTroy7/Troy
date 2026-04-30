@@ -3,52 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 
-    PROJECT: TROY
-    VAULT: Generated Games
-    DEVELOPER: SHOOTSHAY
-    LOG: APRIL 28, 2026
-    -->
-    <title>Troy</title>
+    <title>Troy | طروادة</title>
     <style>
         body {
             background-color: #1C1C1C;
-            color: #414141;
+            color: #808080;
             font-family: 'Courier New', Courier, monospace;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
-            overflow: hidden;
-            text-align: center;
-        }
-        .container {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            align-items: center;
+            min-height: 100vh;
         }
-        h1 {
-            font-weight: 300;
-            letter-spacing: 2px;
-            font-size: 1.1rem;
-            opacity: 0.7;
-            margin: 0;
-            direction: ltr; 
-            unicode-bidi: isolate;
+        h1 { font-weight: 300; margin-top: 20px; opacity: 0.8; letter-spacing: 3px; }
+        .inventory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 20px;
+            width: 85%;
+            margin-top: 50px;
+            padding: 20px;
         }
-        .soon {
+        .item-box {
+            aspect-ratio: 1 / 1;
+            border: 1px solid #414141;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.3s;
             font-size: 0.8rem;
-            letter-spacing: 8px;
             text-transform: uppercase;
-            opacity: 0.4;
+        }
+        .item-box:hover { 
+            border-color: #808080; 
+            background: #252525;
+            color: #FFFFFF;
+        }
+        #selection-bin {
+            margin-top: 40px;
+            padding: 15px;
+            border-top: 1px solid #414141;
+            width: 80%;
+            text-align: center;
+        }
+        .start-btn {
+            background: none;
+            border: 1px solid #808080;
+            color: #808080;
+            padding: 12px 40px;
+            cursor: pointer;
+            margin-top: 30px;
+            letter-spacing: 5px;
+            transition: 0.4s;
+        }
+        .start-btn:hover { 
+            background: #808080; 
+            color: #1C1C1C; 
+            box-shadow: 0 0 15px rgba(128, 128, 128, 0.4);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to Troy / طروادة </h1>
-        <div class="soon">Soon...</div>
+    <h1>TROY / طروادة</h1>
+    <div class="inventory-grid" id="main-inventory"></div>
+    <div id="selection-bin">
+        <p style="font-size: 0.7rem; opacity: 0.4; letter-spacing: 2px;">SELECTED OBJECTS WILL BE ARCHIVED HERE</p>
     </div>
+    <button class="start-btn">INITIALIZE SIMULATION</button>
+    <script src="bridge.js"></script>
 </body>
 </html>
