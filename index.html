@@ -10,6 +10,7 @@
             color: #414141;
             font-family: 'Courier New', Courier, monospace;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -36,7 +37,7 @@
             grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
             gap: 20px;
             width: 80%;
-            margin-top: 20px;
+            margin: 20px 0;
         }
         #selection-bin, .start-btn, .engine-title { display: none; }
         .date-mark {
@@ -57,6 +58,22 @@
             font-size: 0.8rem;
             margin-top: 10px;
         }
+        .engine-title {
+            position: absolute;
+            top: 40px;
+        }
+        .start-btn {
+            background: none;
+            border: 1px solid #414141;
+            color: #414141;
+            padding: 10px 30px;
+            cursor: pointer;
+            letter-spacing: 3px;
+            margin-top: 10px;
+        }
+        #selection-bin {
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -66,13 +83,14 @@
     </div>
 
     <h1 class="engine-title" id="troy-title">Troy / طروادة</h1>
+    
     <div class="inventory-grid" id="main-inventory"></div>
     
+    <button class="start-btn" id="sim-btn">INITIALIZE SIMULATION</button>
+
     <div id="selection-bin">
         <p style="font-size: 0.7rem; opacity: 0.4; letter-spacing: 2px;">SELECTED OBJECTS WILL BE ARCHIVED HERE</p>
     </div>
-    
-    <button class="start-btn" id="sim-btn">INITIALIZE SIMULATION</button>
 
     <div class="date-mark">Since April 28, 2026</div>
 
@@ -88,4 +106,3 @@
     <script src="bridge.js"></script>
 </body>
 </html>
-
