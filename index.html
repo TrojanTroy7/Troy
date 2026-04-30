@@ -31,12 +31,14 @@
             direction: ltr; 
             unicode-bidi: isolate;
         }
-        .soon {
-            font-size: 0.8rem;
-            letter-spacing: 8px;
-            text-transform: uppercase;
-            opacity: 0.4;
+        .inventory-grid {
+            display: none;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 20px;
+            width: 80%;
+            margin-top: 20px;
         }
+        #selection-bin, .start-btn, .engine-title { display: none; }
         .date-mark {
             position: absolute;
             bottom: 20px;
@@ -53,68 +55,37 @@
             cursor: pointer;
             font-family: inherit;
             font-size: 0.8rem;
-            margin-top: 20px;
-            transition: 0.3s;
-        }
-        .go-btn:hover {
-            opacity: 1;
-            color: #808080;
-            border-color: #808080;
-        }
-        #engine-interface {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-        }
-        .inventory-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            gap: 20px;
-            width: 80%;
-            margin-top: 30px;
-        }
-        .item-box {
-            aspect-ratio: 1/1;
-            border: 1px solid #414141;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            font-size: 0.7rem;
-        }
-        .start-btn {
-            background: none;
-            border: 1px solid #414141;
-            color: #414141;
-            padding: 10px 30px;
-            cursor: pointer;
-            margin-top: 40px;
-            letter-spacing: 3px;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <div id="welcome-screen" class="container">
+    <div class="container" id="welcome-container">
         <h1>Welcome to Troy / طروادة </h1>
-        <div class="soon">Soon...</div>
-        <button class="go-btn" onclick="startEngine()">Go, Engine.</button>
+        <button class="go-btn" onclick="startEngine()">Go, Engine</button>
     </div>
 
-    <div id="engine-interface">
-        <h1>TROY / طروادة</h1>
-        <div class="inventory-grid" id="main-inventory"></div>
-        <button class="start-btn">INITIALIZE SIMULATION</button>
+    <h1 class="engine-title" id="troy-title">Troy / طروادة</h1>
+    <div class="inventory-grid" id="main-inventory"></div>
+    
+    <div id="selection-bin">
+        <p style="font-size: 0.7rem; opacity: 0.4; letter-spacing: 2px;">SELECTED OBJECTS WILL BE ARCHIVED HERE</p>
     </div>
+    
+    <button class="start-btn" id="sim-btn">INITIALIZE SIMULATION</button>
 
     <div class="date-mark">Since April 28, 2026</div>
 
     <script>
         function startEngine() {
-            document.getElementById('welcome-screen').style.display = 'none';
-            document.getElementById('engine-interface').style.display = 'flex';
+            document.getElementById('welcome-container').style.display = 'none';
+            document.getElementById('troy-title').style.display = 'block';
+            document.getElementById('main-inventory').style.display = 'grid';
+            document.getElementById('selection-bin').style.display = 'block';
+            document.getElementById('sim-btn').style.display = 'inline-block';
         }
     </script>
     <script src="bridge.js"></script>
 </body>
 </html>
+
