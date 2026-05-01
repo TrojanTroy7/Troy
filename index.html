@@ -76,6 +76,38 @@
         #selection-bin {
             margin-top: 5px;
         }
+        .archived-item {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #414141;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.4rem;
+        }
+        .item-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #414141;
+            color: #1C1C1C;
+            border-radius: 50%;
+            width: 15px;
+            height: 15px;
+            font-size: 0.6rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+        #archived-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -90,6 +122,7 @@
 
     <div id="selection-bin">
         <p style="font-size: 0.7rem; opacity: 0.4; letter-spacing: 2px;">SELECTED OBJECTS WILL BE ARCHIVED HERE</p>
+        <div id="archived-items"></div>
     </div>
     
     <div class="inventory-grid" id="main-inventory"></div>
