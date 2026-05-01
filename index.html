@@ -11,17 +11,19 @@
             font-family: 'Courier New', Courier, monospace;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start; 
             align-items: center;
             height: 100vh;
             margin: 0;
             overflow: hidden;
             text-align: center;
+            padding-top: 40px;
         }
         .container {
             display: flex;
             flex-direction: column;
             gap: 15px;
+            margin-top: 20vh;
         }
         h1 {
             font-weight: 300;
@@ -59,8 +61,8 @@
             margin-top: 10px;
         }
         .engine-title {
-            position: absolute;
-            top: 40px;
+            position: static; 
+            margin-bottom: 10px;
         }
         .start-btn {
             background: none;
@@ -69,10 +71,10 @@
             padding: 10px 30px;
             cursor: pointer;
             letter-spacing: 3px;
-            margin-top: 10px;
+            margin-top: 5px;
         }
         #selection-bin {
-            margin-top: 10px;
+            margin-top: 5px;
         }
     </style>
 </head>
@@ -84,13 +86,13 @@
 
     <h1 class="engine-title" id="troy-title">Troy / طروادة</h1>
     
-    <div class="inventory-grid" id="main-inventory"></div>
-    
-    <button class="start-btn" id="sim-btn">INITIALIZE SIMULATION</button>
+    <button class="start-btn" id="sim-btn" onclick="initializeSimulation()">INITIALIZE SIMULATION</button>
 
     <div id="selection-bin">
         <p style="font-size: 0.7rem; opacity: 0.4; letter-spacing: 2px;">SELECTED OBJECTS WILL BE ARCHIVED HERE</p>
     </div>
+    
+    <div class="inventory-grid" id="main-inventory"></div>
 
     <div class="date-mark">Since April 28, 2026</div>
 
@@ -101,6 +103,12 @@
             document.getElementById('main-inventory').style.display = 'grid';
             document.getElementById('selection-bin').style.display = 'block';
             document.getElementById('sim-btn').style.display = 'inline-block';
+        }
+        
+        function initializeSimulation() {
+            if (typeof Module !== 'undefined' && Module._start_simulation) {
+                Module._start_simulation();
+            }
         }
     </script>
     <script src="bridge.js"></script>
