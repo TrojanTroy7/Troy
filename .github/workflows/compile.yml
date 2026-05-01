@@ -15,12 +15,12 @@ jobs:
 
       - name: Compile C++ to Wasm
         run: |
-          emcc main.cpp -o program.js -s EXPORTED_FUNCTIONS='["_main", "_get_dimensions", "_get_positions", "_get_colors"]' -s EXPORTED_RUNTIME_METHODS='["ccall","cwrap"]' -s NO_EXIT_RUNTIME=1
+          emcc main.cpp gravity.cpp -o bridge.js -s EXPORTED_FUNCTIONS='["_main", "_get_dimensions", "_get_positions", "_get_colors", "_add_cube_to_logic"]' -s EXPORTED_RUNTIME_METHODS='["ccall","cwrap"]' -s NO_EXIT_RUNTIME=1
 
       - name: Upload Result
         uses: actions/upload-artifact@v3
         with:
           name: wasm-files
           path: |
-            program.js
-            program.wasm
+            bridge.js
+            bridge.wasm
