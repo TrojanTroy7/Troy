@@ -1,149 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Troy</title>
+    <title>Troy Project</title>
     <style>
         body {
             background-color: #1C1C1C;
-            color: #414141;
-            font-family: 'Courier New', Courier, monospace;
+            color: #E0E0E0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
-            flex-direction: column;
-            justify-content: flex-start; 
+            justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            overflow: hidden;
-            text-align: center;
-            padding-top: 40px;
-        }
-        .container {
-            display: flex;
             flex-direction: column;
-            gap: 15px;
-            margin-top: 20vh;
+            text-align: center;
         }
+
         h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
             font-weight: 300;
-            letter-spacing: 2px;
-            font-size: 1.1rem;
-            opacity: 0.7;
-            margin: 0;
-            direction: ltr; 
-            unicode-bidi: isolate;
-        }
-        .inventory-grid {
-            display: none;
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            gap: 20px;
-            width: 80%;
-            margin: 20px 0;
-        }
-        #selection-bin, .start-btn, .engine-title { display: none; }
-        .date-mark {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            font-size: 0.6rem;
-            opacity: 0.3;
             letter-spacing: 1px;
         }
-        .go-btn {
-            background: none;
-            border: 1px solid #414141;
-            color: #414141;
-            padding: 8px 16px;
-            cursor: pointer;
-            font-family: inherit;
-            font-size: 0.8rem;
-            margin-top: 10px;
+
+        .soon {
+            font-size: 1.5rem;
+            color: #888;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            animation: blink 2s infinite;
         }
-        .engine-title {
-            position: static; 
-            margin-bottom: 10px;
-        }
-        .start-btn {
-            background: none;
-            border: 1px solid #414141;
-            color: #414141;
-            padding: 10px 30px;
-            cursor: pointer;
-            letter-spacing: 3px;
-            margin-top: 5px;
-        }
-        #selection-bin {
-            margin-top: 5px;
-        }
-        .archived-item {
-            width: 40px;
-            height: 40px;
-            border: 1px solid #414141;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 0.4rem;
-        }
-        .item-count {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background-color: #414141;
-            color: #1C1C1C;
-            border-radius: 50%;
-            width: 15px;
-            height: 15px;
-            font-size: 0.6rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-        }
-        #archived-items {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 10px;
+
+        @keyframes blink {
+            0% { opacity: 0.4; }
+            50% { opacity: 1; }
+            100% { opacity: 0.4; }
         }
     </style>
 </head>
 <body>
-    <div class="container" id="welcome-container">
-        <h1>Welcome to Troy / طروادة </h1>
-        <button class="go-btn" onclick="startEngine()">Go, Engine</button>
+
+    <div>
+        <h1>Welcome to Troy / طروادة</h1>
+        <p class="soon">Soon...</p>
     </div>
 
-    <h1 class="engine-title" id="troy-title">Troy / طروادة</h1>
-    
-    <button class="start-btn" id="sim-btn" onclick="initializeSimulation()">INITIALIZE SIMULATION</button>
-
-    <div id="selection-bin">
-        <p style="font-size: 0.7rem; opacity: 0.4; letter-spacing: 2px;">SELECTED OBJECTS WILL BE ARCHIVED HERE</p>
-        <div id="archived-items"></div>
-    </div>
-    
-    <div class="inventory-grid" id="main-inventory"></div>
-
-    <div class="date-mark">Since April 28, 2026</div>
-
-    <script>
-        function startEngine() {
-            document.getElementById('welcome-container').style.display = 'none';
-            document.getElementById('troy-title').style.display = 'block';
-            document.getElementById('main-inventory').style.display = 'grid';
-            document.getElementById('selection-bin').style.display = 'block';
-            document.getElementById('sim-btn').style.display = 'inline-block';
-        }
-        
-        function initializeSimulation() {
-            if (typeof Module !== 'undefined' && Module._start_simulation) {
-                Module._start_simulation();
-            }
-        }
-    </script>
-    <script src="bridge.js"></script>
 </body>
 </html>
